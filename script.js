@@ -108,19 +108,24 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  //Call getPasswordOptions to start user prompts
   getPasswordOptions();
 
   if (
+    //Check if length input is a number
     !isNaN(passwordProps.arrLength) &&
+    //Check if length is between limits
     passwordProps.arrLength >= 8 &&
     passwordProps.arrLength <= 128 &&
+    //Check if at least one of the character types has been selected
     (passwordProps.isLowerCase ||
       passwordProps.isUpperCase ||
       passwordProps.isNumeric ||
       passwordProps.isSpecial)
   ) {
-    
+
   } else {
+    //alert user that input is not valid
     alert("Invalid password criteria. Please check your inputs and try again.");
   }
 }
