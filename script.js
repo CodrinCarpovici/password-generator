@@ -89,14 +89,15 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+let passwordProps = {};
+
 function getPasswordOptions() {
-  let passwordProps = {};
 
   passwordProps.arrLength = prompt("Length of password? (8 to 128 characters long)");
-  passwordProps.isLowerCase = prompt("Lower case characters? (y/n)");
-  passwordProps.isUpperCase = prompt("Upper case characters? (y/n)");
-  passwordProps.isNumeric = prompt("Numeric characters? (y/n)");
-  passwordProps.isSpecial = prompt("Special characters? (y/n)");
+  passwordProps.isLowerCase = confirm("Lower case characters? (y/n)");
+  passwordProps.isUpperCase = confirm("Upper case characters? (y/n)");
+  passwordProps.isNumeric = confirm("Numeric characters? (y/n)");
+  passwordProps.isSpecial = confirm("Special characters? (y/n)");
 
 }
 
