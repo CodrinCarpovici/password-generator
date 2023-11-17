@@ -90,11 +90,11 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  prompt("Length of password? (8 to 128 characters long)");
-  prompt("Lower case characters? (y/n)");
-  prompt("Upper case characters? (y/n)");
-  prompt("Numeric characters? (y/n)");
-  prompt("Special characters? (y/n)");
+  let arrLength = prompt("Length of password? (8 to 128 characters long)");
+  let isLowerCase = prompt("Lower case characters? (y/n)");
+  let isUpperCase = prompt("Upper case characters? (y/n)");
+  let isNumeric = prompt("Numeric characters? (y/n)");
+  let isSpecialChar = prompt("Special characters? (y/n)");
 }
 
 // Function for getting a random element from an array
@@ -104,7 +104,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  
+
 }
 
 // Get references to the #generate element
