@@ -90,6 +90,7 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 let passwordProps = {};
+let pass = "";
 
 function getPasswordOptions() {
   passwordProps.arrLength = prompt(
@@ -123,7 +124,25 @@ function generatePassword() {
       passwordProps.isNumeric ||
       passwordProps.isSpecial)
   ) {
+    //loop to generate a password as long as the user wishes
+    for (let i = 0; i < passwordProps.arrLength; i++) {
 
+      //checking if user has selected any of the character types and generating one based on the selections at random
+      if (passwordProps.isLowerCase) {
+        pass += getRandom(lowerCasedCharacters);
+      }
+      if (passwordProps.isUpperCase) {
+        pass += getRandom(upperCasedCharacters);
+      }
+      if (passwordProps.isNumeric) {
+        pass += getRandom(numericCharacters);
+      }
+      if (passwordProps.isSpecial) {
+        pass += getRandom(specialCharacters);
+      }
+    }
+
+    return pass;
   } else {
     //alert user that input is not valid
     alert("Invalid password criteria. Please check your inputs and try again.");
