@@ -90,7 +90,11 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  prompt("Length of password? (8 to 128 characters long)");
+  prompt("Lower case characters? (y/n)");
+  prompt("Upper case characters? (y/n)");
+  prompt("Numeric characters? (y/n)");
+  prompt("Special characters? (y/n)");
 }
 
 // Function for getting a random element from an array
