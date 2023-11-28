@@ -126,23 +126,26 @@ function generatePassword() {
   ) {
     //loop to generate a password as long as the user wishes
     for (let i = 0; i < passwordProps.arrLength; i++) {
+      //conditions to check
+      let conditions = [
+        passwordProps.isLowerCase && lowerCasedCharacters,
+        passwordProps.isUpperCase && upperCasedCharacters,
+        passwordProps.isNumeric && numericCharacters,
+        passwordProps.isSpecial && specialCharacters
+      ]
 
-      //checking if user has selected any of the character types and generating one based on the selections at random
-      if (passwordProps.isLowerCase) {
-        pass += getRandom(lowerCasedCharacters);
-      }
-      if (passwordProps.isUpperCase) {
-        pass += getRandom(upperCasedCharacters);
-      }
-      if (passwordProps.isNumeric) {
-        pass += getRandom(numericCharacters);
-      }
-      if (passwordProps.isSpecial) {
-        pass += getRandom(specialCharacters);
-      }
+      let randomCondition;
+      //random condition selected to only generate one of the 4 types of characters
+      do {
+        randomCondition = getRandom(conditions.filter(Boolean));
+      } while (!randomCondition);
+      //add random character to password
+      pass += getRandom(randomCondition);
+      
     }
 
     return pass;
+    
   } else {
     //alert user that input is not valid
     alert("Invalid password criteria. Please check your inputs and try again.");
