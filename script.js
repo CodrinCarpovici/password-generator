@@ -96,6 +96,7 @@ function getPasswordOptions() {
   passwordProps.arrLength = prompt(
     "Length of password? (8 to 128 characters long)"
   );
+  //confirmatin prompts asking user for inputs
   passwordProps.isLowerCase = confirm("Lower case characters? (y/n)");
   passwordProps.isUpperCase = confirm("Upper case characters? (y/n)");
   passwordProps.isNumeric = confirm("Numeric characters? (y/n)");
@@ -109,6 +110,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  //added empty string to this function call so that it clears the previous one
+  pass = "";
   //Call getPasswordOptions to start user prompts
   getPasswordOptions();
 
@@ -131,8 +134,8 @@ function generatePassword() {
         passwordProps.isLowerCase && lowerCasedCharacters,
         passwordProps.isUpperCase && upperCasedCharacters,
         passwordProps.isNumeric && numericCharacters,
-        passwordProps.isSpecial && specialCharacters
-      ]
+        passwordProps.isSpecial && specialCharacters,
+      ];
 
       let randomCondition;
       //random condition selected to only generate one of the 4 types of characters
@@ -141,11 +144,9 @@ function generatePassword() {
       } while (!randomCondition);
       //add random character to password
       pass += getRandom(randomCondition);
-      
     }
 
     return pass;
-    
   } else {
     //alert user that input is not valid
     alert("Invalid password criteria. Please check your inputs and try again.");
